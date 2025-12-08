@@ -1,0 +1,361 @@
+/* Material Design 3 DataTable Styles */
+.mdc-data-table {
+  border-radius: 12px;
+  background: var(--md-sys-color-surface, #fff);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 2px 1px 0px rgba(0, 0, 0, 0.12), 0px 1px 1px 0px rgba(0, 0, 0, 0.14);
+  overflow: hidden;
+  margin: 16px 0;
+}
+
+.mdc-data-table__table-container {
+  overflow-x: auto;
+}
+
+.mdc-data-table__table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Header Styles */
+.mdc-data-table__header-row {
+  height: 56px;
+  background: var(--md-sys-color-surface-container-low, #f5f5f5);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant, #e0e0e0);
+  position: relative;
+}
+
+/* 列宽调整手柄 */
+.mdc-data-table__resize-handle {
+  position: absolute;
+  top: 0;
+  right: -4px;
+  width: 8px;
+  height: 100%;
+  cursor: col-resize;
+  z-index: 1;
+}
+
+.mdc-data-table__resize-handle:hover {
+  background-color: var(--md-sys-color-primary, #6750a4);
+  opacity: 0.5;
+}
+
+.mdc-data-table__resize-handle--active {
+  background-color: var(--md-sys-color-primary, #6750a4);
+  opacity: 0.8;
+}
+
+.mdc-data-table__header-cell {
+  padding: 16px;
+  text-align: left;
+  font: var(--md-sys-typescale-title-small, 500 14px/20px "Roboto");
+  color: var(--md-sys-color-on-surface, #1a1a1a);
+  white-space: nowrap;
+  vertical-align: middle;
+  position: relative;
+}
+
+/* 表头列分割线 */
+.mdc-data-table__header-cell:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  right: 0;
+  height: calc(100% - 16px);
+  width: 1px;
+  background-color: var(--md-sys-color-outline-variant, #e0e0e0);
+  z-index: 1;
+}
+
+/* 列宽拖拽手柄 */
+.mdc-data-table__header-cell:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  right: -4px;
+  width: 8px;
+  height: calc(100% - 16px);
+  cursor: col-resize;
+  z-index: 2;
+}
+
+.mdc-data-table__header-cell:not(:last-child):hover::after {
+  background-color: var(--md-sys-color-primary, #6750a4);
+  opacity: 0.3;
+}
+
+.mdc-data-table__header-cell--numeric {
+  text-align: right;
+}
+
+.mdc-data-table__header-cell--checkbox {
+  width: 54px;
+  text-align: center;
+  padding: 16px 8px;
+}
+
+.mdc-data-table__header-cell-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  min-height: 24px;
+}
+
+.mdc-data-table__header-cell--numeric .mdc-data-table__header-cell-wrapper {
+  justify-content: flex-end;
+}
+
+.mdc-data-table__header-cell--checkbox .mdc-data-table__header-cell-wrapper {
+  justify-content: center;
+}
+
+.mdc-data-table__sort-indicator {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.mdc-data-table__sort-indicator:hover {
+  background-color: var(--md-sys-color-surface-container-highest, #e0e0e0);
+}
+
+.mdc-data-table__sort-indicator--ascending::after {
+  content: "↑";
+  margin-left: 4px;
+  font-size: 12px;
+}
+
+.mdc-data-table__sort-indicator--descending::after {
+  content: "↓";
+  margin-left: 4px;
+  font-size: 12px;
+}
+
+/* Row Styles */
+.mdc-data-table__row {
+  height: 52px;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant, #e0e0e0);
+  transition: background-color 0.2s;
+}
+
+.mdc-data-table__row:hover {
+  background-color: var(--md-sys-color-surface-container, #f5f5f5);
+}
+
+.mdc-data-table__row--selected {
+  background-color: var(--md-sys-color-primary-container, #e8def8);
+}
+/* Cell Styles */
+.mdc-data-table__cell {
+  padding: 16px;
+  font: var(--md-sys-typescale-body-medium, 400 14px/20px "Roboto");
+  color: var(--md-sys-color-on-surface, #1a1a1a);
+  white-space: nowrap;
+  vertical-align: middle;
+  position: relative;
+  cursor: default !important;
+}
+
+/* 列分割线 */
+.mdc-data-table__cell:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  right: 0;
+  height: calc(100% - 16px);
+  width: 1px;
+  background-color: var(--md-sys-color-outline-variant, #e0e0e0);
+}
+
+.mdc-data-table__cell--numeric {
+  text-align: right;
+  font-feature-settings: "tnum";
+}
+
+.mdc-data-table__cell--checkbox {
+  width: 54px;
+  text-align: center;
+  padding: 16px 8px;
+}
+
+/* 可编辑单元格样式 */
+.mdc-data-table__editable-cell {
+  transition: background-color 0.2s;
+}
+
+.mdc-data-table__editable-cell:hover {
+  background-color: var(--md-sys-color-surface-container, #f5f5f5);
+}
+
+/* 编辑输入框样式 */
+.mdc-data-table__edit-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+.mdc-data-table__edit-input:focus {
+  background: var(--md-sys-color-surface, #fff);
+  box-shadow: 0 0 0 2px var(--md-sys-color-primary, #6750a4);
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+.mdc-data-table__cell--numeric {
+  text-align: right;
+  font-feature-settings: "tnum";
+}
+
+.mdc-data-table__cell--checkbox {
+  width: 54px;
+  text-align: center;
+  padding: 16px 8px;
+}
+
+/* Ensure proper alignment for all cells */
+.mdc-data-table__table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.mdc-data-table__header-cell,
+.mdc-data-table__cell {
+  box-sizing: border-box;
+}
+
+/* Checkbox Styles */
+.mdc-checkbox__native-control {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  cursor: pointer;
+  accent-color: var(--md-sys-color-primary, #6750a4);
+}
+
+/* Pagination Styles */
+.mdc-data-table__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 16px;
+  border-top: 1px solid var(--md-sys-color-outline-variant, #e0e0e0);
+  background: var(--md-sys-color-surface, #fff);
+}
+
+.mdc-data-table__pagination-navigation {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mdc-data-table__pagination-info {
+  font: var(--md-sys-typescale-body-small, 400 12px/16px "Roboto");
+  color: var(--md-sys-color-on-surface-variant, #666);
+  margin: 0 16px;
+}
+
+.mdc-data-table__pagination-button {
+  background: var(--md-sys-color-primary, #6750a4);
+  color: var(--md-sys-color-on-primary, #fff);
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font: var(--md-sys-typescale-label-large, 500 14px/20px "Roboto");
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.mdc-data-table__pagination-button:hover:not(:disabled) {
+  background: var(--md-sys-color-primary-dark, #5a4790);
+}
+
+.mdc-data-table__pagination-button:disabled {
+  background: var(--md-sys-color-surface-container-highest, #e0e0e0);
+  color: var(--md-sys-color-on-surface-variant, #666);
+  cursor: not-allowed;
+}
+
+/* Dark Theme Support */
+@media (prefers-color-scheme: dark) {
+  .mdc-data-table {
+    background: var(--md-sys-color-surface, #1e1e1e);
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3),
+      0px 2px 1px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.15);
+  }
+
+  .mdc-data-table__header-row {
+    background: var(--md-sys-color-surface-container-low, #2a2a2a);
+    border-bottom-color: var(--md-sys-color-outline-variant, #444);
+  }
+
+  .mdc-data-table__header-cell {
+    color: var(--md-sys-color-on-surface, #fff);
+  }
+
+  .mdc-data-table__row {
+    border-bottom-color: var(--md-sys-color-outline-variant, #444);
+  }
+
+  .mdc-data-table__row:hover {
+    background-color: var(--md-sys-color-surface-container, #2a2a2a);
+  }
+
+  .mdc-data-table__row--selected {
+    background-color: var(--md-sys-color-primary-container, #4a3d70);
+  }
+
+  .mdc-data-table__cell {
+    color: var(--md-sys-color-on-surface, #fff);
+  }
+
+  .mdc-data-table__pagination {
+    border-top-color: var(--md-sys-color-outline-variant, #444);
+    background: var(--md-sys-color-surface, #1e1e1e);
+  }
+
+  .mdc-data-table__pagination-info {
+    color: var(--md-sys-color-on-surface-variant, #aaa);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mdc-data-table {
+    border-radius: 8px;
+    margin: 8px;
+  }
+
+  .mdc-data-table__header-cell,
+  .mdc-data-table__cell {
+    padding: 12px 8px;
+  }
+
+  .mdc-data-table__header-row {
+    height: 48px;
+  }
+
+  .mdc-data-table__row {
+    height: 44px;
+  }
+
+  .mdc-data-table__pagination {
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .mdc-data-table__pagination-navigation {
+    justify-content: center;
+  }
+}
